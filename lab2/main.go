@@ -1,13 +1,14 @@
 package main
 
 import (
-	"algosITMO/labs/lab2/betonicSort"
 	"bufio"
 	"fmt"
 	"io"
 	"log"
 	"os"
 	"strings"
+
+	"github.com/17HIERARCH70/betonicSort"
 )
 
 func main() {

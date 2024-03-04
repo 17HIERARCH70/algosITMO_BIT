@@ -1,9 +1,10 @@
 package betonicSort_test
 
 import (
-	"algosITMO/labs/lab2/betonicSort"
 	"errors"
 	"testing"
+
+	"github.com/17HIERARCH70/betonicSort"
 )
 
 func TestBetonicSort(t *testing.T) {
