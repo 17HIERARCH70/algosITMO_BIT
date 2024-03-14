@@ -1,11 +1,9 @@
-package betonicSort_test
+package betonicSortStack
 
 import (
 	"errors"
 	"strconv"
 	"testing"
-
-	"github.com/17HIERARCH70/betonicSort"
 )
 
 func TestBetonicSort(t *testing.T) {
@@ -22,11 +20,12 @@ func TestBetonicSort(t *testing.T) {
 		{input: "87654321", want: "12345678", err: nil},
 		{input: "12435678", want: "12345678", err: nil},
 		{input: "87543212", want: "12234578", err: nil},
+		{input: "12a4", want: "", err: errors.New("array must include only numbers")},
 		{input: "1232332456789", want: "", err: errors.New("array length must be a power of 2")},
 		{input: "", want: "", err: errors.New("empty array")},
 	}
 	for _, test := range tests {
-		got, err := betonicSort.BetonicSort(test.input)
+		got, err := BitonicSort(test.input)
 		if (err == nil && test.err != nil) || (err != nil && test.err == nil) || (err != nil && test.err != nil && err.Error() != test.err.Error()) {
 			t.Errorf("betonicSort(%q) = %q, %v; want %q, %v", test.input, got, err, test.want, test.err)
 		}
@@ -35,13 +34,15 @@ func TestBetonicSort(t *testing.T) {
 		}
 	}
 }
+
+// BenchmarkBitonicSort benchmarks the BitonicSort function
 func BenchmarkBitonicSort(b *testing.B) {
 	// Create a test case with a large input array
 	input := "12345678901234567890"
 
 	// Run the BitonicSort function b.N times
 	for i := 0; i < b.N; i++ {
-		_, _ = betonicSort.BetonicSort(input)
+		_, _ = BitonicSort(input)
 	}
 }
 
@@ -61,6 +62,6 @@ func BenchmarkBitonicSortLargeInput(b *testing.B) {
 
 	// Run the BitonicSort function b.N times
 	for i := 0; i < b.N; i++ {
-		_, _ = betonicSort.BetonicSort(input)
+		_, _ = BitonicSort(input)
 	}
 }
