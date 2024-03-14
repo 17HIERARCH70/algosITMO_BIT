@@ -21,6 +21,8 @@ cd algosITMO_BIT
 go run lab1/main
 # Для выполнения лабораторной работы №2
 go run lab2/main
+....
+go run labN/main
 ```
 
 ## Вклад
