@@ -53,15 +53,12 @@ func BitonicSort(arr string) (string, error) {
 			for i := 0; i < stack.Len(); i++ {
 				l := i ^ j
 				if l > i && l < stack.Len() {
-					result1, err := stack.Compare(i, l)
+					result, err := stack.Compare(i, l)
 					if err != nil {
 						return "", err
 					}
-					result2, err := stack.Compare(i, l)
-					if err != nil {
-						return "", err
-					}
-					if (i&k == 0) && (result1 == 1) || (i&k != 0) && (result2 == -1) {
+
+					if (i&k == 0) && (result == 1) || (i&k != 0) && (result == -1) {
 						err := stack.Swap(i, l)
 						if err != nil {
 							return "", errors.New("error with swapping")

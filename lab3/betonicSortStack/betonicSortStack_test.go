@@ -1,6 +1,7 @@
-package betonicSortStack
+package betonicSortStack_test
 
 import (
+	"algosITMO/lab3/betonicSortStack"
 	"errors"
 	"strconv"
 	"testing"
@@ -25,7 +26,7 @@ func TestBetonicSort(t *testing.T) {
 		{input: "", want: "", err: errors.New("empty array")},
 	}
 	for _, test := range tests {
-		got, err := BitonicSort(test.input)
+		got, err := betonicSortStack.BitonicSort(test.input)
 		if (err == nil && test.err != nil) || (err != nil && test.err == nil) || (err != nil && test.err != nil && err.Error() != test.err.Error()) {
 			t.Errorf("betonicSort(%q) = %q, %v; want %q, %v", test.input, got, err, test.want, test.err)
 		}
@@ -42,7 +43,7 @@ func BenchmarkBitonicSort(b *testing.B) {
 
 	// Run the BitonicSort function b.N times
 	for i := 0; i < b.N; i++ {
-		_, _ = BitonicSort(input)
+		_, _ = betonicSortStack.BitonicSort(input)
 	}
 }
 
@@ -62,6 +63,6 @@ func BenchmarkBitonicSortLargeInput(b *testing.B) {
 
 	// Run the BitonicSort function b.N times
 	for i := 0; i < b.N; i++ {
-		_, _ = BitonicSort(input)
+		_, _ = betonicSortStack.BitonicSort(input)
 	}
 }
