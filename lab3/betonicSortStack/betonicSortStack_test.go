@@ -1,10 +1,11 @@
 package betonicSortStack_test
 
 import (
-	"algosITMO/lab3/betonicSortStack"
 	"errors"
 	"strconv"
 	"testing"
+
+	"github.com/17HIERARCH70/algosITMO_BIT/lab3/betonicSortStack"
 )
 
 func TestBetonicSort(t *testing.T) {
